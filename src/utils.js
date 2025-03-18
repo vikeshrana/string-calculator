@@ -6,7 +6,6 @@ export function stringCalculator(numbers) {
     numbers = numbers.replace(/\\n/g, "\n"); // Convert "\\n" from HTML input to actual newlines ("\n")
     
     let customDelimiterMatch = numbers.match(/^\/\/([^\n]+)\n/); // Check for custom delimiter format
-    console.log('customDelimiterMatch',customDelimiterMatch[0].length);
     if (customDelimiterMatch) {
         delimiter = new RegExp(customDelimiterMatch[1]); // Use custom delimiter
         numbers = numbers.slice(customDelimiterMatch[0].length); // Remove delimiter declaration from input
