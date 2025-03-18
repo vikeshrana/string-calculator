@@ -2,8 +2,10 @@ export function stringCalculator(numbers) {
     if (!numbers.trim()) return 0;
 
     let delimiter = /,|\n/; 
+
+    numbers = numbers.replace(/\\n/g, "\n");
     
-    let customDelimiterMatch = numbers.match(/^\/\/(.+)\n/);
+    let customDelimiterMatch = numbers.match(/^\/\/([^\n]+)\n/);
 
     if (customDelimiterMatch) {
         delimiter = new RegExp(customDelimiterMatch[1]);
