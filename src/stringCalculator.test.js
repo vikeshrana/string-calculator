@@ -19,3 +19,10 @@ test("handles new line as a delimiter", () => {
 test("handle custom delimiters", () => {
   expect(stringCalculator("//;\n1;2")).toBe(3);
 });
+
+test("throws error for negative numbers", () => {
+  expect(() => stringCalculator("1,-2,3,-4")).toThrow(
+    "negative numbers not allowed -2,-4"
+  );
+});
+

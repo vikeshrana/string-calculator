@@ -4,13 +4,17 @@ import { stringCalculator } from "./utils";
 export default function StringCalculator() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState(null);
+  const [error, setError] = useState(null)
 
   function calculateSum() {
     try {
       const sum = stringCalculator(input);
       setResult(sum);
+      setError(null)
     } catch (err) {
       console.log(err);
+      setResult(null);
+      setError(err.message)
     }
   }
 
@@ -32,6 +36,9 @@ export default function StringCalculator() {
       </button>
       {result !== null && (
         <p className="mt-3 text-green-600 font-semibold">Result: {result}</p>
+      )}
+      {error && (
+        <p className="mt-3 text-red-600 font-semibold">Error: {error}</p>
       )}
     </div>
   );
