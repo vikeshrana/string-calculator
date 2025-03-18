@@ -15,3 +15,7 @@ test("returns sum for multiple numbers", () => {
 test("handles new line as a delimiter", () => {
   expect(stringCalculator("1\n2,3")).toBe(6);
 });
+
+test("handle custom delimiters", () => {
+  expect(stringCalculator("//;\n1;2")).toBe(3);
+});
